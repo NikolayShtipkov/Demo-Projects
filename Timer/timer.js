@@ -37,26 +37,32 @@ function stopWatch() {
 
     if (seconds < 10) {
         leadingSeconds = "0" + seconds.toString();
+    } else {
+        leadingSeconds = seconds;
     }
 
     if (minutes < 10) {
         leadingMinutes = "0" + minutes.toString();
+    } else {
+        leadingMinutes = minutes; 
     }
 
     if (hours < 10) {
         leadingHours = "0" + hours.toString();
+    } else {
+        leadingHours = hours;
     }
 
     let displayTimer = document.getElementById('timer').innerText = 
     leadingHours + ':' + leadingMinutes + ':' + leadingSeconds;
 }
 
-// window.setInterval(stopWatch, 1000);
+// window.setInterval(stopWatch, 1);
 
 startStopBtn.addEventListener('click', function() {
 
     if (timerStatus === 'stopped') {
-        timerInterval = window.setInterval(stopWatch, 1000);
+        timerInterval = window.setInterval(stopWatch, 10);
         document.getElementById('start-stop-btn').innerHTML = `<p id="stop">Stop</p>`;
         timerStatus = 'started';
     } else {
@@ -74,5 +80,7 @@ resetBtn.addEventListener('click', function() {
     minutes = 0;
     hours = 0;
 
+    document.getElementById('start-stop-btn').innerHTML = `<p id="start">Start</p>`;
+    timerStatus = 'stopped';
     document.getElementById('timer').innerHTML = '00:00:00';
 });
