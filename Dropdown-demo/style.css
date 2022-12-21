@@ -1,0 +1,128 @@
+:root {
+    --dark-grey: #333333;
+    --light-grey: #555;
+    --border-grey: #CFCFCF;
+}
+
+* {
+    font-family: Roboto;
+    box-sizing: border-box;
+}
+
+body {
+    background: darkred;
+    height: 500px;
+}
+
+.menu {
+    margin: 0 auto;
+    width: 70rem;
+    background: #F7F6F5;
+    border-top: 1px solid var(--border-grey);
+}
+
+.menu-main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-main-item {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border-bottom: 1px solid var(--border-grey);
+}
+
+.menu-main-item:first-child:hover {
+    border-left: none;
+    margin-left: 0;
+}
+
+.menu-main-item:last-child:hover {
+    border-right: none;
+    margin-right: 0;
+}
+
+.menu-main-item-active,
+.menu-main-item:hover {
+    background: white;
+    border-bottom: none;
+    border-right: 1px solid #CFCFCF;
+    border-left: 1px solid #CFCFCF;
+    margin: 0 -1px;
+}
+
+.menu-main-item-current .menu-main-item-link {
+    color: var(--dark-grey);
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.3rem;
+}
+
+.menu-main-item-link {
+    text-decoration: none;
+    color: var(--light-grey);
+    font-family: Roboto;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.menu-main-item-link:hover {
+    text-decoration: underline;
+    color: #1C60BB;
+}
+
+.menu-sub {
+    height: 18rem;
+    background: white;
+    display: none;
+}
+
+.menu-sub-categories {
+    vertical-align: top;
+    display: inline-block;
+    width: calc(40% - 2px);
+    padding: 0.5rem;
+}
+
+.menu-sub-visual {
+    display: inline-block;
+    width: calc(60% - 2px);
+    padding: 0.5rem;
+    height: 100%;
+}
+
+.menu-sub-visual-img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-sub-categories-category {
+    display: inline-block;
+    width: calc(50% - 2px);
+    vertical-align: top;
+}
+
+.menu-sub-categories-header {
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--light-grey);
+    margin-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.menu-sub-categories-items {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    color: var(--light-grey);
+}
+
+.menu-sub-categories-item-link {
+    text-decoration: none;
+    color: var(--light-grey);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.menu-sub-categories-item-link:hover {
+    text-decoration: underline;
+}
