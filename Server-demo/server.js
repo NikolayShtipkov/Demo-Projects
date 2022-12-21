@@ -1,16 +1,9 @@
 const HOST = 'server.com/';
 
-function populateFields(field) {
-  api.get(HOST + 'fields', {field}, function (items) {
-    let newItems = '';
-    for (let item of items) {
-      let itemElement = `<li>${item}</li>`;
-
-      newItems += itemElement;
-    }
-
-    const itemElements = documen.getElementByClassName(`${field}`);
-  });
+const goElement = document.getElementsByClassName("go")[0];
+goElement.onclick = function() {
+  const inputElement = document.getElementsByClassName("test")[0];
+  api.get(HOST + "menus", {menu: inputElement.value}, displayText);
 }
 
 function displayText(response) {
@@ -20,14 +13,14 @@ function displayText(response) {
 
 // Server
 
-function getFields(data) {
+function getMenus(data) {
   switch (data.menu) {
     case "a":
       return "I got an A";
     case "b":
       return "I got a B";
     default:
-      return "I don't know what I got";
+      return "I don't know what I got"
   }
 }
 
@@ -35,19 +28,20 @@ const endpoints = {
   "/": {
     "get": () => "hello world"
   },
-  "/fields": {
-    "get": getFields
+  "/menus": {
+    "get": getMenus
   }
 }
 
 // API library
 
 function getFunction(url, data, callback) {
+  const domain = url.substring(0, url.indexOf("/"));
   const endpoint = url.substring(url.indexOf("/"), url.length);
 
   callback(endpoints[endpoint]["get"](data));
 }
 
 const api = {
-    get: getFunction
+  get: getFunction
 };
